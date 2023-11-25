@@ -1,14 +1,32 @@
 import logo from "./logo.svg";
 import "./App.css";
-import Header from "./Layouts/Header";
+import RootLayout from "./Layouts/RootLayout";
+import { RouterProvider, createBrowserRouter} from "react-router-dom";
+import MainPage from "./Pages/MainPage";
 
 function App() {
-    return (
-        <div className="app-layout">
-            <Header></Header>
+    
+    const router = createBrowserRouter([
+        {
+            path: "/",
+            element: <RootLayout />,
+            children: [
+                { path: "/", element: <MainPage />  },
+            ],
+        },
+      ]);
+
+      return (
+    
+        <RouterProvider router={router} />
+        
+      );
+    // return (
+    //     <div className="app-layout">
+    //         <Header></Header>
             
-        </div>
-    );
+    //     </div>
+    // );
 }
 
 export default App;
