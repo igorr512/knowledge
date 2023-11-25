@@ -1,0 +1,11 @@
+.tags-layout{
+    align-self: flex-start;
+    margin-left: 2rem;
+    display: flex;
+    gap:10px;
+
+}
+.tags-inner{
+    display: flex;
+    margin:5rem;
+}
