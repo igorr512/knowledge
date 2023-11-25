@@ -1,11 +1,10 @@
-import MyQuillEditor from "../Components/MyQuillEditor";
+import Editor from "../Components/Editor";
 import Tags from "../Layouts/Tags";
 import "./MainPage.css";
 const MainPage = () => {
-    const tagsAr = [1,2,3];
   return (
     <div className="mainpage-layout">
-      <MyQuillEditor />
+      <Editor />
       <Tags/>
     </div>
   );

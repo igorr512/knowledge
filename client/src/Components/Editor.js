@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
 import "./Editor.css"
 import 'react-quill/dist/quill.snow.css'; // Import Quill styles
-import { Height } from '@mui/icons-material';
 
 const modules = {
   toolbar: [
@@ -29,7 +28,7 @@ const rtlStyle = {
   textAlign: 'right',
 };
 
-const MyQuillEditor = () => {
+const Editor = () => {
   const [text, setText] = useState('');
 
   const handleChange = (content, delta, source, editor) => {
@@ -51,4 +50,4 @@ const MyQuillEditor = () => {
   );
 };
 
-export default MyQuillEditor;
+export default Editor;

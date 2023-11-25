@@ -5,6 +5,7 @@ import { useState, useRef } from "react";
 const options = ["Object", "Message"];
 
 const Tags = (props) => {
+  // Tags state that will be moved outside of the component
   const [tags, setTags] = useState(() => {
     if (!props.tagsArray) {
       return [];
@@ -12,22 +13,36 @@ const Tags = (props) => {
       return props.tagsArray;
     }
   });
+  // For Options bar
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectOptions, setSelectOptions] = useState(options); //Change with redux when available
-  const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
+  // For textbox
+  const [isOpen, setIsOpen] = useState(false);
   const [text, setText] = useState("");
 
   const clickOptionHandler = (item) => {
+    /**
+     * A function that runs when a option is being clicked (the option that appearafter clicking the add tag)
+     * @param item - The selected item that was clicked (from the options)
+     */
     setSelectedOption(item);
     setIsOpen(true);
-    console.log(item);
     handleClose();
   };
   const onChangeTextInput = (event) => {
+    /**
+     * a function that runs when the textbox is being changed (written to or deleted from)
+     * @param event - the variable that is passed when the text in the textbox is changed
+     */
     setText(event.target.value);
   };
   const handleKeyDown = (event) => {
+    /**
+     * a function that will run on every keystroke looking for the Enter press
+     * when Enter press is found it will update the tags array with the new tag
+     * * @param event - the variable that is passed when a keystroke is registerd
+     */
     if (event.key === "Enter" && !event.shiftKey) {
       setIsOpen(false);
       setTags([...tags, { [selectedOption]: text }]);
@@ -38,9 +53,17 @@ const Tags = (props) => {
   };
 
   const clickHandler = (event) => {
+    /**
+     * a function that runs when the "add tag" button is pressed
+     * @param event - a variable that holds the position of the click, so to know where to open the options bar
+     */
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
+    /**
+     * a function that closes the options bar, it does so by setting the anchorEl to null
+     */
+    
     setAnchorEl(null);
   };
 
@@ -53,7 +76,6 @@ const Tags = (props) => {
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
         onClose={handleClose}
-        PaperComponent={Paper}
       >
         {selectOptions.map((option, index) => (
           <MenuItem
@@ -69,7 +91,6 @@ const Tags = (props) => {
         <TextField
           id={selectedOption}
           label={selectedOption}
-          placeholder="bb"
           onKeyDown={handleKeyDown}
           value={text}
           onChange={onChangeTextInput}
@@ -77,8 +98,9 @@ const Tags = (props) => {
       )}
       {console.log(tags)}
       {tags.length > 0 &&
-        tags.map((tag) => (
+        tags.map((tag,index) => (
           <Chip
+            key={index}
             label={Object.keys(tag)[0] + ": " + tag[Object.keys(tag)[0]]}
             color="primary"
           ></Chip>
