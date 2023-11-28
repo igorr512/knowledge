@@ -11,15 +11,27 @@
     display: flex;
     flex-direction: column;
     /* justify-content: flex-end; */
-    align-items: center;
     width: 95vw;
     background-color: white;
 }
+.editorpage-positioning{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:2rem;
+    width: 100%;
+
+}
+.tags-submit-position{
+    display: flex;
+    justify-content: space-between;
+}
+.button-spacing{
+    margin-right: 2rem;
+    margin-bottom: 10px;
+}
 .title-label{
-    margin:2rem;
-    align-self: center;
-    width: 90%
-    ;
+    width: 90%;
     
 }
 .submit-button{

@@ -28,11 +28,11 @@ const rtlStyle = {
   textAlign: 'right',
 };
 
-const Editor = () => {
-  const [text, setText] = useState('');
+const Editor = (props) => {
+  //const [text, setText] = useState('');
 
   const handleChange = (content, delta, source, editor) => {
-    setText(content);
+    props.setText(content);
   };
 
   return (
@@ -41,7 +41,7 @@ const Editor = () => {
         theme="snow"
         modules={modules}
         formats={formats}
-        value={text}
+        value={props.text}
         onChange={handleChange}
         style={{height:"40vh"}}
         // style={{ direction: 'rtl' }} // Apply RTL style to the editor
