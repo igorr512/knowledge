@@ -43,7 +43,7 @@ const Editor = () => {
         formats={formats}
         value={text}
         onChange={handleChange}
-        style={{height:"50vh"}}
+        style={{height:"40vh"}}
         // style={{ direction: 'rtl' }} // Apply RTL style to the editor
       />
     </div>
