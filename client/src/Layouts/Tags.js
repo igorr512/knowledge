@@ -66,6 +66,16 @@ const Tags = (props) => {
     
     setAnchorEl(null);
   };
+  const tagDeleteHandler = (index) =>{
+    /**
+     * a function that will run when the tag will be clicked (to delete it)
+     * @param index - the index of the tag in the array
+     */
+    debugger;
+    const updatedItems = props.tags.filter((_,i)=>i!==index);
+    props.setTags(updatedItems);
+
+  }
 
   return (
     <div className="tags-layout">
@@ -102,6 +112,7 @@ const Tags = (props) => {
             key={index}
             label={Object.keys(tag)[0] + ": " + tag[Object.keys(tag)[0]]}
             color="primary"
+            onDelete={()=>tagDeleteHandler(index)}
           ></Chip>
         ))}
     </div>
