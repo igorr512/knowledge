@@ -1,10 +1,11 @@
 .header {
-    background-color: lightgray;
+    background-color: rgba(37, 86, 194, 0.918);
     border-bottom-style:groove;
     height: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 0;
 }
 .header-options{
     display: flex;
