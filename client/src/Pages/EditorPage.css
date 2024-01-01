@@ -1,0 +1,40 @@
+.editorpage-layout{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: lightgray;
+    height: calc(100vh - 2rem);
+    
+    }
+.editorpage-inner{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-end; */
+    width: 95vw;
+    background-color: white;
+}
+.editorpage-positioning{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:2rem;
+    width: 100%;
+
+}
+.tags-submit-position{
+    display: flex;
+    justify-content: space-between;
+}
+.button-spacing{
+    margin-right: 2rem;
+    margin-bottom: 10px;
+}
+.title-label{
+    width: 90%;
+    
+}
+.submit-button{
+    align-self: flex-end;
+    margin-bottom: 100px;
+}

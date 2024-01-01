@@ -6,13 +6,13 @@ const options = ["Object", "Message"];
 
 const Tags = (props) => {
   // Tags state that will be moved outside of the component
-  const [tags, setTags] = useState(() => {
-    if (!props.tagsArray) {
-      return [];
-    } else {
-      return props.tagsArray;
-    }
-  });
+  // const [tags, setTags] = useState(() => {
+  //   if (!props.tagsArray) {
+  //     return [];
+  //   } else {
+  //     return props.tagsArray;
+  //   }
+  // });
   // For Options bar
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectOptions, setSelectOptions] = useState(options); //Change with redux when available
@@ -45,7 +45,7 @@ const Tags = (props) => {
      */
     if (event.key === "Enter" && !event.shiftKey) {
       setIsOpen(false);
-      setTags([...tags, { [selectedOption]: text }]);
+      props.setTags([...props.tags, { [selectedOption]: text }]);
       setText("");
       setSelectedOption("");
       console.log("BBB");
@@ -66,6 +66,16 @@ const Tags = (props) => {
     
     setAnchorEl(null);
   };
+  const tagDeleteHandler = (index) =>{
+    /**
+     * a function that will run when the tag will be clicked (to delete it)
+     * @param index - the index of the tag in the array
+     */
+    debugger;
+    const updatedItems = props.tags.filter((_,i)=>i!==index);
+    props.setTags(updatedItems);
+
+  }
 
   return (
     <div className="tags-layout">
@@ -96,13 +106,13 @@ const Tags = (props) => {
           onChange={onChangeTextInput}
         />
       )}
-      {console.log(tags)}
-      {tags.length > 0 &&
-        tags.map((tag,index) => (
+      {props.tags.length > 0 &&
+        props.tags.map((tag,index) => (
           <Chip
             key={index}
             label={Object.keys(tag)[0] + ": " + tag[Object.keys(tag)[0]]}
             color="primary"
+            onDelete={()=>tagDeleteHandler(index)}
           ></Chip>
         ))}
     </div>

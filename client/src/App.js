@@ -2,7 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import RootLayout from "./Layouts/RootLayout";
 import { RouterProvider, createBrowserRouter} from "react-router-dom";
-import MainPage from "./Pages/MainPage";
+import EditorPage from "./Pages/EditorPage";
 
 function App() {
     
@@ -11,7 +11,7 @@ function App() {
             path: "/",
             element: <RootLayout />,
             children: [
-                { path: "/", element: <MainPage />  },
+                { path: "/", element: <EditorPage />  },
             ],
         },
       ]);
