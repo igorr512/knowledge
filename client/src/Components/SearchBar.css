@@ -1,0 +1,18 @@
+.search-container{
+	display: flex;
+	border-style: solid;
+	border-color:black;
+	border-radius: 10px;
+	padding: 10px;
+	height: 1rem;
+	margin-top: 2rem;
+}
+
+
+.input-white{
+	width: 100%;
+	border: none;
+      outline: none;
+      box-shadow: none;
+
+}

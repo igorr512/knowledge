@@ -3,6 +3,7 @@ import "./App.css";
 import RootLayout from "./Layouts/RootLayout";
 import { RouterProvider, createBrowserRouter} from "react-router-dom";
 import EditorPage from "./Pages/EditorPage";
+import MainPage from "./Pages/MainPage";
 
 function App() {
     
@@ -11,7 +12,10 @@ function App() {
             path: "/",
             element: <RootLayout />,
             children: [
-                { path: "/", element: <EditorPage />  },
+                { path: "/", element: <MainPage />  },
+                {
+                  path: "/AddProcedure",element:<EditorPage /> 
+                },
             ],
         },
       ]);
