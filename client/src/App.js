@@ -4,6 +4,7 @@ import RootLayout from "./Layouts/RootLayout";
 import { RouterProvider, createBrowserRouter} from "react-router-dom";
 import EditorPage from "./Pages/EditorPage";
 import MainPage from "./Pages/MainPage";
+import ProcedurePage from "./Pages/ProcedurePage";
 
 function App() {
     
@@ -14,7 +15,11 @@ function App() {
             children: [
                 { path: "/", element: <MainPage />  },
                 {
-                  path: "/AddProcedure",element:<EditorPage /> 
+                  path: "/AddProcedure",element:<EditorPage />
+                   
+                },
+                {
+                  path: "/Procedure/:Id",element:<ProcedurePage />
                 },
             ],
         },

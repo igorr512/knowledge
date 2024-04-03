@@ -1,6 +1,6 @@
-import { Chip, Menu, MenuItem, Paper, TextField } from "@mui/material";
+import { Chip, Menu, MenuItem, TextField } from "@mui/material";
 import "./Tags.css";
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 const options = ["Object", "Message"];
 

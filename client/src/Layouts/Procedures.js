@@ -1,12 +1,17 @@
 import Procedure from "../Components/Procedure";
 import "./Procedures.css"
 const Procedures = (props) =>{
-    // props will containt array called "procedureArray" of title and texts of the procedures like:
-    // [{title:this,text:<h1>tttt</h1>...},{title:another,text:<p>tttt</p>...}]
+    // A functional component that renders a group of procedures
+    // Props:
+    // - procedureArray (array): An array of objects, each with 'title' (string) property  and with 'text' (string) property  
+    // - example:
+    // - [{title:this,text:<h1>tttt</h1>...},{title:another,text:<p>tttt</p>...}]
+
+    const maxLetters = 100;
     return(
         <>
         {props.procedureArray.map((procedure,index)=>(
-            <div key={index} className="container"><Procedure text={procedure.text} ></Procedure></div>
+            <div key={index} className="container"><Procedure text={procedure.text} maxLetters={maxLetters}></Procedure></div>
         ))}
         </>
     );
