@@ -16,6 +16,16 @@ db.once('open', () => {
   console.log('Connected to MongoDB database');
 });
 
+// Middleware function to log requests
+app.use((req, res, next) => {
+  
+  res.on('finish', () => {
+    console.log(`[${new Date().toISOString()}] "${req.method} ${req.originalUrl}" ${res.statusCode}`);
+  });
+  next();
+});
+
+
 // Routes
 
 app.use('/procedures',procedureRoutes);
